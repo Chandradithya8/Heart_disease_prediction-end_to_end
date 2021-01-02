@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Heart Disease Prediction</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Website Title -->
+    	<div class="container">
+            <h2 class='container-heading'><span class="heading_font">Heart Disease Prediction(Machine Learning)</span>
+            </h2>           
+    	</div>
+
+        <!-- Text Area -->
+    	<div class="ml-container">
+    		<form action="{{ url_for('predict') }}" method="POST">
+                <input class="form-input" type="text" name="age" placeholder="Enter the age"><br>
+                <input class="form-input" type="text" name="sex" placeholder="Gender (Enter 0 for male and 1 for female)"><br>
+                <input class="form-input" type="text" name="cp" placeholder="Enter the cp"><br>
+                <input class="form-input" type="text" name="trestbps" placeholder="Enter the trestbps"><br>
+                <input class="form-input" type="text" name="chol" placeholder="Enter the chol"><br>
+                <input class="form-input" type="text" name="fbs" placeholder="Enter the fbs"><br>
+                <input class="form-input" type="text" name="restecg" placeholder="Enter the restecg"><br>
+                <input class="form-input" type="text" name="thalach" placeholder="Enter the thalach"><br>
+                <input class="form-input" type="text" name="exang" placeholder="Enter the exang"><br>
+                <input class="form-input" type="text" name="oldpeak" placeholder="Enter the oldpeak"><br>
+                <input class="form-input" type="text" name="slope" placeholder="Enter the slope"><br>
+                <input class="form-input" type="text" name="ca" placeholder="Enter the ca"><br>
+                <input class="form-input" type="text" name="thal" placeholder="Enter the thal"><br>
+
+        		<input type="submit" class="my-cta-button" value="Predict">
+            </form>
+           
+    	</div>
+
+        <!-- Footer -->
+       <div class='footer'>
+           <div class="contact">
+               <a target="_blank" href="https://github.com/anujvyas/Diabetes-Prediction-Deployment"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/anujkvyas"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+           </div>
+           <p class='footer-description'>Made by Chandradithya K.G</p>
+       </div>
+
+    </body>
+</html>
