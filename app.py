@@ -20,7 +20,7 @@ def predict():
     else:
         a= 'OOPS YOU HAVE HEART DISEASE'   
 
-    return render_template('result.html', prediction_text=a)
+    return render_template('index.html', prediction_text=a)
 
 
 if __name__ == '__main__':
