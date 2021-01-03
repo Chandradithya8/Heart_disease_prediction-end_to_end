@@ -1,52 +1,103 @@
 <!DOCTYPE html>
+<html>
+<head>
 
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Heart Disease Prediction</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    </head>
 
-    <body>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>Diabetes_prediction</title>
+    
+</head>
+	<style>
+    #main-footer
+    {
+      color: #FFFFFF;
+      font-family: "Segoe UI";
+      background: #2B2B2B;
+      text-align: center;
+      margin-top: 125px;
+      padding: 16px;
+      bottom: 8px;
+    }</style>
+<body>
+    
+       </head>
+<div class="container",class="form-group">
+        
+    <h2>Heart Disease Prediction(Machine Learning)</h2>
+    <h3>Enter the Following parameters :</h3>
 
-        <!-- Website Title -->
-    	<div class="container">
-            <h2 class='container-heading'><span class="heading_font">Heart Disease Prediction(Machine Learning)</span>
-            </h2>           
-    	</div>
 
-        <!-- Text Area -->
-    	<div class="ml-container">
-    		<form action="{{ url_for('predict') }}" method="POST">
-                <input class="form-input" type="text" name="age" placeholder="Enter the age"><br>
-                <input class="form-input" type="text" name="sex" placeholder="Gender (Enter 0 for male and 1 for female)"><br>
-                <input class="form-input" type="text" name="cp" placeholder="Enter the cp"><br>
-                <input class="form-input" type="text" name="trestbps" placeholder="Enter the trestbps"><br>
-                <input class="form-input" type="text" name="chol" placeholder="Enter the chol"><br>
-                <input class="form-input" type="text" name="fbs" placeholder="Enter the fbs"><br>
-                <input class="form-input" type="text" name="restecg" placeholder="Enter the restecg"><br>
-                <input class="form-input" type="text" name="thalach" placeholder="Enter the thalach"><br>
-                <input class="form-input" type="text" name="exang" placeholder="Enter the exang"><br>
-                <input class="form-input" type="text" name="oldpeak" placeholder="Enter the oldpeak"><br>
-                <input class="form-input" type="text" name="slope" placeholder="Enter the slope"><br>
-                <input class="form-input" type="text" name="ca" placeholder="Enter the ca"><br>
-                <input class="form-input" type="text" name="thal" placeholder="Enter the thal"><br>
+    <form action="{{ url_for('predict') }}" method="POST">
 
-        		<input type="submit" class="my-cta-button" value="Predict">
-            </form>
-           
-    	</div>
+        <label>Age </label>
+        <input type="text" id="Age" name="Age">
+        <br>
+    
+        <label>Sex(male:0 , female:1 )  </label>
+        <input type="text" id="Sex" name="Sex">
+        <br>
+    
+        <label>Chest Pain Type(1-typical anglina 2- atypical angina 3-non — anginal pain 4-asymptotic)  </label>
+        <input type="text" id="cpt" name="cpt">
+        <br>
+    
+        <label>Resting Blood Pressure  </label>
+        <input type="text" id="rbp" name="rbp">
+        <br>
+    
+        <label>Cholestrol  </label>
+        <input type="text" id="c" name="c">
+        <br>
+    
+        <label>Fasting Blood Sugar : </label>
+        <input type="fbs" id="BMI" name="fbs">
+        <br>
+    
+        <label>Resting ECG(0-normal 1-ST-T wave abnormality 2-left ventricular hyperthrophy) : </label>
+        <input type="text" id="ecg" name="ecg">
+        <br>
+    
+        <label>Max heart rate achieved  </label>
+        <input type="text" id="rate" name="rate">
+        <br>
 
-        <!-- Footer -->
-       <div class='footer'>
-           <div class="contact">
-               <a target="_blank" href="https://github.com/Chandradithya8/Heart_disease_prediction-heroku"><i class="fab fa-github fa-lg contact-icon"></i></a>
-               <a target="_blank" href="https://www.linkedin.com/in/chandradithya-k-g-2123591a6/"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
-           </div>
-           <p class='footer-description'>Made by Chandradithya K.G</p>
-       </div>
+        <label>Exercise induced angina(1- yes 0-no)</label>
+        <input type="text" id="angina" name="angina">
+        <br>
 
+        <label>ST depression  </label>
+        <input type="text" id="st" name="st">
+        <br>
+
+        <label>Peak exercise ST segment(1-unsloping 2-flat 3-downsloping) </label>
+        <input type="text" id="segment" name="segment">
+        <br>
+
+        <label>Number of major vessels(0-3) </label>
+        <input type="text" id="vessels" name="vessels">
+        <br>
+
+        <label>Thal </label>
+        <input type="text" id="thal" name="thal">
+        <br>
+
+    <br>
+
+    <input type="submit" value="Submit">
+    <br>
+    <br>
+</form>
+   <label>Prediction : {{prediction_text}}</label>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<footer id="main-footer">
+      Made by Chandradithya K.G
+    </footer>
     </body>
 </html>
