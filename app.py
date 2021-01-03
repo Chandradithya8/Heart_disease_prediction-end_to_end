@@ -16,9 +16,9 @@ def predict():
     prediction = model.predict(final_features)
      
     if prediction==0:
-        a= 'YOU DONT HAVE HEART DISEASE'
+        a= 'CONGRATULATION! YOU DONT HAVE HEART DISEASE'
     else:
-        a= 'OOPS YOU HAVE HEART DISEASE'   
+        a= 'OOPS! YOU HAVE HEART DISEASE'   
 
     return render_template('index.html', prediction_text=a)
 
